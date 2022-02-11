@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  cloudflared:
+    container_name: cloudflared
+    build: .
+    ports:
+      - "5053:5053"
+      - "5053:5053/udp"
+    volumes:
+      - './conf/:/etc/cloudflared/'
+    restart: unless-stopped
